@@ -6,7 +6,7 @@
 
 %union{
 	char* fchar;
-       double fval;
+    double fval;
 	int intval;
 };
 
