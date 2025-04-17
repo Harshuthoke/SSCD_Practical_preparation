@@ -12,7 +12,14 @@ extern int yyerror(char *str);
 start:	sif;
 sif:	IF OP cmpn CP stmt			{printf("VALID STATEMENT IF\n");};
 cmpn:	ID CMP ID | ID CMP NUM;
-stmt:	ID ASG ID OPR ID SC | ID ASG ID OPR NUM SC | ID ASG NUM OPR ID SC | ID ASG NUM OPR NUM SC | ID ASG ID SC | ID ASG NUM SC;
+stmt: ID ASG expr SC;
+
+expr: ID OPR ID
+    | ID OPR NUM
+    | NUM OPR ID
+    | NUM OPR NUM
+    | ID
+    | NUM;
 
 %%
 int yyerror(char *str)x
